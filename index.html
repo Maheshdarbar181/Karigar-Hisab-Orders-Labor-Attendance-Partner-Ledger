@@ -853,11 +853,38 @@
     const GOOGLE_DRIVE_FILE_NAME = 'Karigar_Hisab_Auto_Backup.json';
     const GOOGLE_DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/userinfo.email';
 
+    const GOOGLE_SESSION_KEY = 'karigar_hisab_google_session_v1';
     let _googleAccessToken = '';
     let _googleTokenExpiry = 0;
     let _googleUserEmail = '';
     let _googleTokenClient = null;
     let _pendingDriveAction = null;
+
+    function loadSavedGoogleSession() {
+      try {
+        const raw = localStorage.getItem(GOOGLE_SESSION_KEY);
+        if (!raw) return;
+        const s = JSON.parse(raw);
+        if (s && s.email) _googleUserEmail = s.email;
+        if (s && s.token && s.expiry && Date.now() < Number(s.expiry)) {
+          _googleAccessToken = s.token;
+          _googleTokenExpiry = Number(s.expiry);
+        }
+      } catch (e) {}
+    }
+    function saveGoogleSession() {
+      try {
+        localStorage.setItem(GOOGLE_SESSION_KEY, JSON.stringify({
+          token: _googleAccessToken,
+          expiry: _googleTokenExpiry,
+          email: _googleUserEmail
+        }));
+      } catch (e) {}
+    }
+    function clearGoogleSession() {
+      try { localStorage.removeItem(GOOGLE_SESSION_KEY); } catch (e) {}
+    }
+    loadSavedGoogleSession();
 
     function getGoogleClientId() {
       if (DEFAULT_GOOGLE_CLIENT_ID && DEFAULT_GOOGLE_CLIENT_ID.trim()) return DEFAULT_GOOGLE_CLIENT_ID.trim();
@@ -956,6 +983,7 @@
               _googleUserEmail = uJson.email || '';
             }
           } catch (e) {}
+          saveGoogleSession();
           updateDriveSyncUI(t('gConnectedBadge'), true);
           showToast('Google લોગિન સફળ! ✓');
           const act = _pendingDriveAction;
@@ -974,7 +1002,9 @@
       }
       _pendingDriveAction = afterAction || null;
       if (!initGoogleSignInClient()) return;
-      _googleTokenClient.requestAccessToken({ prompt: isGoogleSignedIn() ? '' : 'select_account' });
+      const reqOpts = { prompt: (isGoogleSignedIn() || _googleUserEmail) ? '' : 'select_account' };
+      if (_googleUserEmail) reqOpts.hint = _googleUserEmail;
+      _googleTokenClient.requestAccessToken(reqOpts);
     }
 
     function signOutGoogle() {
@@ -984,6 +1014,7 @@
       _googleAccessToken = '';
       _googleTokenExpiry = 0;
       _googleUserEmail = '';
+      clearGoogleSession();
       updateDriveSyncUI();
       showToast('Google એકાઉન્ટમાંથી લોગઆઉટ થઈ ગયા.');
     }
@@ -1043,6 +1074,14 @@
             },
             body: multipartBody
           });
+        }
+        if (res.status === 401) {
+          _googleAccessToken = '';
+          _googleTokenExpiry = 0;
+          saveGoogleSession();
+          updateDriveSyncUI();
+          if (showAlertToast) triggerGoogleSignIn('save');
+          return;
         }
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const nowStr = `${todayDDMMYYYY()} ${new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })}`;
