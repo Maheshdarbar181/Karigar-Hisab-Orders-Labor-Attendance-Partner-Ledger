@@ -315,7 +315,7 @@
             <h2 class="text-base font-bold text-slate-900" data-i18n="gDriveTitle">ઓટોમેટિક Google Drive બેકઅપ (Login with Google)</h2>
             <p class="text-xs text-slate-600 mt-0.5" data-i18n="gDriveSub">ફક્ત તમારા Google એકાઉન્ટથી લોગિન કરો — તમારો તમામ ડેટા સીધો તમારા પોતાના Google Drive માં સુરક્ષિત રીતે સેવ થશે.</p>
           </div>
-          <span id="drive-sync-badge" class="px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300">લોગિન નથી</span>
+          <span id="drive-sync-badge" class="px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300" data-i18n="gLoginPendingBadge">લોગિન નથી</span>
         </div>
 
         <div id="google-auth-bar" class="flex flex-wrap items-center gap-2.5">
@@ -328,8 +328,8 @@
         </div>
 
         <div id="client-id-config-box" class="flex flex-col sm:flex-row gap-2 pt-1">
-          <input id="input-google-client-id" type="text" placeholder="Google OAuth Client ID પેસ્ટ કરો (દા.ત. 123456-abc.apps.googleusercontent.com)" class="flex-1 px-3 py-2 text-xs sm:text-sm border-2 border-slate-500 rounded-xl bg-slate-50 focus:bg-white" />
-          <button id="btn-save-client-id" type="button" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition whitespace-nowrap">Client ID સેવ કરો</button>
+          <input id="input-google-client-id" type="text" data-i18n-ph="clientIdPh" placeholder="Paste Google OAuth Client ID (e.g. 123456-abc.apps.googleusercontent.com)" class="flex-1 px-3 py-2 text-xs sm:text-sm border-2 border-slate-500 rounded-xl bg-slate-50 focus:bg-white" />
+          <button id="btn-save-client-id" type="button" data-i18n="saveClientIdBtn" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm rounded-xl transition whitespace-nowrap">Save Client ID</button>
         </div>
 
         <div class="flex flex-wrap items-center gap-2 pt-1">
@@ -452,7 +452,7 @@
 
     const I18N = {
       gu: {
-        gDriveTitle:"ઓટોમેટિક Google Drive બેકઅપ (Login with Google)",gDriveSub:"ફક્ત તમારા Google એકાઉન્ટથી લોગિન કરો — તમારો તમામ ડેટા સીધો તમારા પોતાના Google Drive માં સુરક્ષિત રીતે સેવ થશે.",gSignInBtn:"Sign in with Google",gSwitchBtn:"Google એકાઉન્ટ બદલો",gSignOutBtn:"લોગઆઉટ",gLoggedInPrefix:"લોગિન",gActiveBadge:"Google લોગિન સક્રિય ✓",gConnectedBadge:"Google Drive કનેક્ટેડ ✓",gLoginPendingBadge:"લોગિન બાકી",gHeaderLogin:"Drive: લોગિન કરો",gSyncNowBtn:"અત્યારે Drive માં સેવ કરો",gRestoreBtn:"Drive માંથી ડેટા પાછો લાવો",gGuideBtn:"Client ID સેટઅપ રીત જુઓ",undoResetBtn:"છેલ્લો રિસેટ કરેલો ડેટા પાછો લાવો",
+        clientIdPh:"Google OAuth Client ID પેસ્ટ કરો (દા.ત. 123456-abc.apps.googleusercontent.com)",saveClientIdBtn:"Client ID સેવ કરો",driveClientIdMissing:"Drive: Client ID બાકી",driveClientIdNotSet:"Client ID સેટ નથી",needClientIdToast:"પહેલા Google OAuth Client ID સેવ કરો.",gisLoadingToast:"Google Login લોડ થઈ રહ્યું છે, 2 સેકન્ડ પછી ફરી પ્રયાસ કરો.",loginCancelledToast:"Google લોગિન પૂર્ણ થઈ શક્યું નહીં.",loginSuccessToast:"Google લોગિન સફળ! ✓",loginCancelledBadge:"લોગિન રદ/એરર",fileProtoToast:"Google Login ફક્ત GitHub Pages (https://) પર જ ચાલે છે, લોકલ file:// પર નહીં.",signedOutToast:"Google એકાઉન્ટમાંથી લોગઆઉટ થઈ ગયા.",driveSaveErrToast:"Google Drive માં સેવ કરવામાં એરર આવી — ફરી લોગિન કરો.",clientIdSavedToast:"Client ID સેવ થઈ ગયો! હવે Sign in with Google દબાવો.",clientIdRemovedToast:"Client ID દૂર કર્યો.",undoRestoredToast:"રિસેટ કરેલો ડેટા પાછો આવી ગયો! ✓",undoNotFoundToast:"પાછો લાવવા માટે કોઈ જૂનો ડેટા મળ્યો નથી.",resetSafeNote:"${t('resetSafeNote')}",resetDoneWithUndoToast:"બધા ઓર્ડર ખાલી કર્યા (Drive બેકઅપ સુરક્ષિત છે). Undo થી પાછા લાવી શકાય છે.",cidGuideTitle:"Google Login (Client ID) સેટઅપ રીત (ફક્ત 1 વાર, ફ્રી)",cidGuideStep1:"બ્રાઉઝરમાં <strong>console.cloud.google.com</strong> ખોલો અને તમારા Gmail થી લોગિન કરી <strong>New Project</strong> બનાવો.",cidGuideStep2:"<strong>APIs &amp; Services → Library</strong> માં જઈને <strong>Google Drive API</strong> સર્ચ કરો અને <strong>Enable</strong> કરો.",cidGuideStep3:"<strong>OAuth consent screen</strong> માં <strong>External</strong> પસંદ કરી એપનું નામ (<em>Karigar Hisab</em>) અને ઈમેલ નાખી સેવ કરો (Scopes માં <code>.../auth/drive.file</code> ઉમેરો).",cidGuideStep4:"<strong>Credentials → Create Credentials → OAuth client ID</strong> માં <strong>Web application</strong> પસંદ કરો અને <strong>Authorized JavaScript origins</strong> માં તમારી GitHub Pages URL ઉમેરો.",cidGuideStep5:"મળેલો <strong>Client ID</strong> કોપી કરીને અહીં બોક્સમાં સેવ કરો — અથવા HTML ફાઈલમાં <code>DEFAULT_GOOGLE_CLIENT_ID</code> માં મૂકી દો.",cidGuideNote:"<strong>નોંધ:</strong> દરેક યુઝરનો ડેટા તેમના પોતાના Google Drive માં <code>Karigar_Hisab_Auto_Backup.json</code> ફાઈલમાં સેવ થશે.",okBtn:"બરાબર ✓",gDriveTitle:"ઓટોમેટિક Google Drive બેકઅપ (Login with Google)",gDriveSub:"ફક્ત તમારા Google એકાઉન્ટથી લોગિન કરો — તમારો તમામ ડેટા સીધો તમારા પોતાના Google Drive માં સુરક્ષિત રીતે સેવ થશે.",gSignInBtn:"Sign in with Google",gSwitchBtn:"Google એકાઉન્ટ બદલો",gSignOutBtn:"લોગઆઉટ",gLoggedInPrefix:"લોગિન",gActiveBadge:"Google લોગિન સક્રિય ✓",gConnectedBadge:"Google Drive કનેક્ટેડ ✓",gLoginPendingBadge:"લોગિન બાકી",gHeaderLogin:"Drive: લોગિન કરો",gSyncNowBtn:"અત્યારે Drive માં સેવ કરો",gRestoreBtn:"Drive માંથી ડેટા પાછો લાવો",gGuideBtn:"Client ID સેટઅપ રીત જુઓ",undoResetBtn:"છેલ્લો રિસેટ કરેલો ડેટા પાછો લાવો",
         darkModeBtn: "🌙 ડાર્ક મોડ", lightModeBtn: "☀️ લાઇટ મોડ",
         menuBtn: "☰ મેનુ",
         driveBadgeNotSet: "સેટ કરેલ નથી", driveBadgeSyncing: "સિંક ચાલુ છે...", driveBadgeErr: "સિંક એરર", removeShortBtn: "✕ કાઢો", propNamePh: "દા.ત. મહેશભાઈ", propAddrPh: "ગામ, સોસાયટી, તાલુકો, જિલ્લો", taglinePh: "દા.ત. Since 2020", shopAddrPh: "વર્કશોપનું સ્થળ / ગામ", equalPartnersLbl: "ભાગીદાર (પાર્ટનર) — નફામાં સરખો ભાગ",
@@ -484,7 +484,7 @@
         signature: 'સહી', custSign: 'ગ્રાહક સહી', partnerSign: 'પાર્ટનર સહી'
       },
       hi: {
-        gDriveTitle:"ऑटोमैटिक Google Drive बैकअप (Login with Google)",gDriveSub:"बस अपने Google खाते से लॉगिन करें — आपका सारा डेटा सीधे आपके अपने Google Drive में सुरक्षित सेव होगा।",gSignInBtn:"Sign in with Google",gSwitchBtn:"Google खाता बदलें",gSignOutBtn:"लॉगआउट",gLoggedInPrefix:"लॉगिन",gActiveBadge:"Google लॉगिन सक्रिय ✓",gConnectedBadge:"Google Drive कनेक्टेड ✓",gLoginPendingBadge:"लॉगिन बाकी",gHeaderLogin:"Drive: लॉगिन करें",gSyncNowBtn:"अभी Drive में सेव करें",gRestoreBtn:"Drive से डेटा वापस लाएं",gGuideBtn:"Client ID सेटअप विधि देखें",undoResetBtn:"रीसेट किया गया पिछला डेटा वापस लाएं",
+        clientIdPh:"Google OAuth Client ID पेस्ट करें (जैसे 123456-abc.apps.googleusercontent.com)",saveClientIdBtn:"Client ID सेव करें",driveClientIdMissing:"Drive: Client ID बाकी",driveClientIdNotSet:"Client ID सेट नहीं",needClientIdToast:"पहले Google OAuth Client ID सेव करें।",gisLoadingToast:"Google Login लोड हो रहा है, 2 सेकंड बाद फिर प्रयास करें।",loginCancelledToast:"Google लॉगिन पूरा नहीं हो सका।",loginSuccessToast:"Google लॉगिन सफल! ✓",loginCancelledBadge:"लॉगिन रद्द/त्रुटि",fileProtoToast:"Google Login केवल https:// (जैसे GitHub Pages) पर काम करता है, लोकल file:// पर नहीं।",signedOutToast:"Google खाते से लॉगआउट हो गए।",driveSaveErrToast:"Google Drive में सेव करने में त्रुटि — फिर से लॉगिन करें।",clientIdSavedToast:"Client ID सेव हो गया! अब Sign in with Google दबाएं।",clientIdRemovedToast:"Client ID हटाया गया।",undoRestoredToast:"रीसेट किया गया डेटा वापस आ गया! ✓",undoNotFoundToast:"वापस लाने के लिए कोई पुराना डेटा नहीं मिला।",resetSafeNote:"नोट: आपका पुराना डेटा Undo के लिए लोकल मेमोरी और Google Drive बैकअप में सुरक्षित रहेगा।",resetDoneWithUndoToast:"सभी ऑर्डर खाली किए गए (Drive बैकअप सुरक्षित है)। Undo से वापस ला सकते हैं।",cidGuideTitle:"Google Login (Client ID) सेटअप विधि (केवल 1 बार, मुफ्त)",cidGuideStep1:"ब्राउज़र में <strong>console.cloud.google.com</strong> खोलें और Gmail से लॉगिन कर <strong>New Project</strong> बनाएं।",cidGuideStep2:"<strong>APIs &amp; Services → Library</strong> में जाकर <strong>Google Drive API</strong> खोजें और <strong>Enable</strong> करें।",cidGuideStep3:"<strong>OAuth consent screen</strong> में <strong>External</strong> चुनकर ऐप का नाम (<em>Karigar Hisab</em>) व ईमेल डालकर सेव करें।",cidGuideStep4:"<strong>Credentials → Create Credentials → OAuth client ID</strong> में <strong>Web application</strong> चुनें और <strong>Authorized JavaScript origins</strong> में अपना GitHub Pages URL जोड़ें।",cidGuideStep5:"मिला हुआ <strong>Client ID</strong> कॉपी कर यहां बॉक्स में सेव करें या HTML में <code>DEFAULT_GOOGLE_CLIENT_ID</code> में डालें।",cidGuideNote:"<strong>नोट:</strong> हर यूजर का डेटा उनके अपने Google Drive में <code>Karigar_Hisab_Auto_Backup.json</code> फाइल में सेव होगा।",okBtn:"ठीक है ✓",gDriveTitle:"ऑटोमैटिक Google Drive बैकअप (Login with Google)",gDriveSub:"बस अपने Google खाते से लॉगिन करें — आपका सारा डेटा सीधे आपके अपने Google Drive में सुरक्षित सेव होगा।",gSignInBtn:"Sign in with Google",gSwitchBtn:"Google खाता बदलें",gSignOutBtn:"लॉगआउट",gLoggedInPrefix:"लॉगिन",gActiveBadge:"Google लॉगिन सक्रिय ✓",gConnectedBadge:"Google Drive कनेक्टेड ✓",gLoginPendingBadge:"लॉगिन बाकी",gHeaderLogin:"Drive: लॉगिन करें",gSyncNowBtn:"अभी Drive में सेव करें",gRestoreBtn:"Drive से डेटा वापस लाएं",gGuideBtn:"Client ID सेटअप विधि देखें",undoResetBtn:"रीसेट किया गया पिछला डेटा वापस लाएं",
         darkModeBtn: "🌙 डार्क मोड", lightModeBtn: "☀️ लाइट मोड",
         menuBtn: "☰ मेनू",
         driveBadgeNotSet: "सेट नहीं है", driveBadgeSyncing: "सिंक हो रहा है...", driveBadgeErr: "सिंक त्रुटि", removeShortBtn: "✕ हटाएं", propNamePh: "जैसे महेशभाई", propAddrPh: "गांव, सोसाइटी, तहसील, जिला", taglinePh: "जैसे Since 2020", shopAddrPh: "वर्कशॉप / दुकान का पता", equalPartnersLbl: "भागीदार (पार्टनर) — लाभ में बराबर हिस्सा",
@@ -516,7 +516,7 @@
         signature: 'हस्ताक्षर', custSign: 'ग्राहक हस्ताक्षर', partnerSign: 'पार्टनर हस्ताक्षर'
       },
       en: {
-        gDriveTitle:"Automatic Google Drive Backup (Sign in with Google)",gDriveSub:"Simply sign in with your Google account — all your data is saved securely in your own Google Drive.",gSignInBtn:"Sign in with Google",gSwitchBtn:"Switch Google Account",gSignOutBtn:"Sign Out",gLoggedInPrefix:"Signed in",gActiveBadge:"Google Sign-In Active ✓",gConnectedBadge:"Google Drive Connected ✓",gLoginPendingBadge:"Sign-In Pending",gHeaderLogin:"Drive: Sign In",gSyncNowBtn:"Save to Drive Now",gRestoreBtn:"Restore from Drive",gGuideBtn:"View Client ID Setup Guide",undoResetBtn:"Restore Last Reset Data",
+        clientIdPh:"Paste Google OAuth Client ID (e.g. 123456-abc.apps.googleusercontent.com)",saveClientIdBtn:"Save Client ID",driveClientIdMissing:"Drive: Client ID Missing",driveClientIdNotSet:"Client ID Not Set",needClientIdToast:"Please save your Google OAuth Client ID first.",gisLoadingToast:"Google Sign-In is loading, please try again in 2 seconds.",loginCancelledToast:"Google Sign-In could not be completed.",loginSuccessToast:"Google Sign-In successful! ✓",loginCancelledBadge:"Sign-In Cancelled/Error",fileProtoToast:"Google Sign-In only works on https:// (e.g. GitHub Pages), not on local file://.",signedOutToast:"Signed out of Google account.",driveSaveErrToast:"Error saving to Google Drive — please sign in again.",clientIdSavedToast:"Client ID saved! Now click Sign in with Google.",clientIdRemovedToast:"Client ID removed.",undoRestoredToast:"Reset data restored! ✓",undoNotFoundToast:"No previous reset data found to restore.",resetSafeNote:"Note: Your previous data stays safe in local Undo memory and your Google Drive backup.",resetDoneWithUndoToast:"All orders cleared (Drive backup is safe). You can restore via Undo.",cidGuideTitle:"Google Sign-In (Client ID) Setup Guide (One-Time, Free)",cidGuideStep1:"Open <strong>console.cloud.google.com</strong> in your browser and create a <strong>New Project</strong>.",cidGuideStep2:"Go to <strong>APIs &amp; Services → Library</strong>, search for <strong>Google Drive API</strong>, and click <strong>Enable</strong>.",cidGuideStep3:"Under <strong>OAuth consent screen</strong>, choose <strong>External</strong>, enter app name (<em>Karigar Hisab</em>) and email, and save (add scope <code>.../auth/drive.file</code>).",cidGuideStep4:"Go to <strong>Credentials → Create Credentials → OAuth client ID</strong>, pick <strong>Web application</strong>, and add your GitHub Pages URL under <strong>Authorized JavaScript origins</strong>.",cidGuideStep5:"Copy the generated <strong>Client ID</strong> and save it here — or set <code>DEFAULT_GOOGLE_CLIENT_ID</code> in the HTML file.",cidGuideNote:"<strong>Note:</strong> Each user's data is saved privately in their own Google Drive as <code>Karigar_Hisab_Auto_Backup.json</code>.",okBtn:"OK ✓",gDriveTitle:"Automatic Google Drive Backup (Sign in with Google)",gDriveSub:"Simply sign in with your Google account — all your data is saved securely in your own Google Drive.",gSignInBtn:"Sign in with Google",gSwitchBtn:"Switch Google Account",gSignOutBtn:"Sign Out",gLoggedInPrefix:"Signed in",gActiveBadge:"Google Sign-In Active ✓",gConnectedBadge:"Google Drive Connected ✓",gLoginPendingBadge:"Sign-In Pending",gHeaderLogin:"Drive: Sign In",gSyncNowBtn:"Save to Drive Now",gRestoreBtn:"Restore from Drive",gGuideBtn:"View Client ID Setup Guide",undoResetBtn:"Restore Last Reset Data",
         darkModeBtn: "🌙 Dark Mode", lightModeBtn: "☀️ Light Mode",
         menuBtn: "☰ Menu",
         driveBadgeNotSet: "Not Configured", driveBadgeSyncing: "Syncing...", driveBadgeErr: "Sync Error", removeShortBtn: "✕ Remove", propNamePh: "e.g. Maheshbhai", propAddrPh: "Village, Society, Taluka, District", taglinePh: "e.g. Since 2020", shopAddrPh: "Workshop / Shop Location", equalPartnersLbl: "Partners — Equal Share in Profit",
@@ -933,8 +933,8 @@
       }
 
       if (!clientId) {
-        if (hdrBtn) { hdrBtn.textContent = 'Drive: Client ID બાકી'; hdrBtn.className = 'px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-semibold transition whitespace-nowrap text-slate-300'; }
-        if (badge) { badge.textContent = 'Client ID સેટ નથી'; badge.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300'; }
+        if (hdrBtn) { hdrBtn.textContent = t('driveClientIdMissing'); hdrBtn.className = 'px-2.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-semibold transition whitespace-nowrap text-slate-300'; }
+        if (badge) { badge.textContent = t('driveClientIdNotSet'); badge.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 border border-slate-300'; }
         if (lastEl) lastEl.textContent = '';
         return;
       }
@@ -962,11 +962,11 @@
     function initGoogleSignInClient() {
       const clientId = getGoogleClientId();
       if (!clientId) {
-        showToast('પહેલા Google OAuth Client ID સેવ કરો.');
+        showToast(t('needClientIdToast'));
         return false;
       }
       if (!window.google || !google.accounts || !google.accounts.oauth2) {
-        showToast('Google Login લોડ થઈ રહ્યું છે, 2 સેકન્ડ પછી ફરી પ્રયાસ કરો.');
+        showToast(t('gisLoadingToast'));
         return false;
       }
       _googleTokenClient = google.accounts.oauth2.initTokenClient({
@@ -974,8 +974,8 @@
         scope: GOOGLE_DRIVE_SCOPE,
         callback: async (resp) => {
           if (resp.error || !resp.access_token) {
-            updateDriveSyncUI('લોગિન રદ/એરર', false);
-            showToast('Google લોગિન પૂર્ણ થઈ શક્યું નહીં.');
+            updateDriveSyncUI(t('loginCancelledBadge'), false);
+            showToast(t('loginCancelledToast'));
             return;
           }
           _googleAccessToken = resp.access_token;
@@ -991,7 +991,7 @@
           } catch (e) {}
           saveGoogleSession();
           updateDriveSyncUI(t('gConnectedBadge'), true);
-          showToast('Google લોગિન સફળ! ✓');
+          showToast(t('loginSuccessToast'));
           const act = _pendingDriveAction;
           _pendingDriveAction = null;
           if (act === 'save') syncToGoogleDrive(true);
@@ -1003,7 +1003,7 @@
 
     function triggerGoogleSignIn(afterAction) {
       if (window.location.protocol === 'file:') {
-        showToast('Google Login ફક્ત GitHub Pages (https://) પર જ ચાલે છે, લોકલ file:// પર નહીં.');
+        showToast(t('fileProtoToast'));
         return;
       }
       _pendingDriveAction = afterAction || null;
@@ -1022,7 +1022,7 @@
       _googleUserEmail = '';
       clearGoogleSession();
       updateDriveSyncUI();
-      showToast('Google એકાઉન્ટમાંથી લોગઆઉટ થઈ ગયા.');
+      showToast(t('signedOutToast'));
     }
 
     async function findDriveBackupFile() {
@@ -1096,7 +1096,7 @@
         if (showAlertToast) showToast(t('driveSavedOk'));
       } catch (err) {
         updateDriveSyncUI(t('driveErr'), false);
-        if (showAlertToast) showToast('Google Drive માં સેવ કરવામાં એરર આવી — ફરી લોગિન કરો.');
+        if (showAlertToast) showToast(t('driveSaveErrToast'));
       }
     }
 
@@ -1116,6 +1116,14 @@
         const res = await fetch(`https://www.googleapis.com/drive/v3/files/${existing.id}?alt=media`, {
           headers: { Authorization: `Bearer ${_googleAccessToken}` }
         });
+        if (res.status === 401) {
+          _googleAccessToken = '';
+          _googleTokenExpiry = 0;
+          saveGoogleSession();
+          updateDriveSyncUI();
+          triggerGoogleSignIn('restore');
+          return;
+        }
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
         if (data && Array.isArray(data.orders)) {
@@ -1142,23 +1150,23 @@
 
     function openGasGuideModal() {
       openModal({
-        title: 'Google Login (Client ID) સેટઅપ રીત (ફક્ત 1 વાર, ફ્રી)',
+        title: t('cidGuideTitle'),
         bodyHtml: `
           <div class="space-y-3 text-xs sm:text-sm text-slate-700">
             <ol class="list-decimal pl-5 space-y-2">
-              <li>બ્રાઉઝરમાં <strong>console.cloud.google.com</strong> ખોલો અને તમારા Gmail થી લોગિન કરી <strong>New Project</strong> બનાવો.</li>
-              <li><strong>APIs &amp; Services → Library</strong> માં જઈને <strong>Google Drive API</strong> સર્ચ કરો અને <strong>Enable</strong> કરો.</li>
-              <li><strong>OAuth consent screen</strong> માં <strong>External</strong> પસંદ કરી એપનું નામ (<em>Karigar Hisab</em>) અને ઈમેલ નાખી સેવ કરો (Scopes માં <code>.../auth/drive.file</code> ઉમેરો).</li>
-              <li><strong>Credentials → Create Credentials → OAuth client ID</strong> માં <strong>Web application</strong> પસંદ કરો અને <strong>Authorized JavaScript origins</strong> માં તમારી GitHub Pages URL (દા.ત. <code>https://maheshdarbar181.github.io</code>) ઉમેરો.</li>
-              <li>મળેલો <strong>Client ID</strong> કોપી કરીને અહીં બોક્સમાં સેવ કરો — અથવા HTML ફાઈલમાં <code>DEFAULT_GOOGLE_CLIENT_ID</code> માં મૂકી દો, જેથી બીજા કોઈ યુઝરને કંઈ સેટઅપ ન કરવું પડે!</li>
+              <li>${t('cidGuideStep1')}</li>
+              <li>${t('cidGuideStep2')}</li>
+              <li>${t('cidGuideStep3')}</li>
+              <li>${t('cidGuideStep4')}</li>
+              <li>${t('cidGuideStep5')}</li>
             </ol>
             <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs">
-              <strong>નોંધ:</strong> દરેક યુઝરનો ડેટા તેમના પોતાના Google Drive માં <code>Karigar_Hisab_Auto_Backup.json</code> ફાઈલમાં સેવ થશે. તમારી Drive ની જગ્યા જરાય નહીં ભરાય.
+              ${t('cidGuideNote')}
             </div>
           </div>
         `,
         actions: [
-          { label: 'બરાબર ✓', className: 'px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-900 text-white hover:bg-slate-800', onClick: closeModal }
+          { label: t('okBtn'), className: 'px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-slate-900 text-white hover:bg-slate-800', onClick: closeModal }
         ]
       });
     }
@@ -1181,6 +1189,22 @@
         if (l && I18N[l]) return l;
       } catch (e) {}
       return 'en';
+    }
+
+    const UNDO_RESET_KEY = 'karigar_hisab_undo_reset_v1';
+    function updateUndoResetButton() {
+      const undoBtn = document.getElementById('btn-undo-reset');
+      if (!undoBtn) return;
+      try {
+        const raw = localStorage.getItem(UNDO_RESET_KEY);
+        const parsed = raw ? JSON.parse(raw) : null;
+        if (parsed && Array.isArray(parsed.orders) && parsed.orders.length > 0) {
+          undoBtn.textContent = `${t('undoResetBtn')} (${parsed.orders.length} ${t('orderWord')})`;
+          undoBtn.classList.remove('hidden');
+          return;
+        }
+      } catch (e) {}
+      undoBtn.classList.add('hidden');
     }
 
     function applyStaticTranslations() {
@@ -1812,7 +1836,7 @@
       const h = computeOrderHisab(o);
       const c = normalizeContact(state.contact);
       const whatsappPropsLines = (c.proprietors || []).filter(p => p.name || p.phone || p.address).map(p =>
-        [p.name, p.phone ? `મો: ${p.phone}` : '', p.address ? `(${p.address})` : ''].filter(Boolean).join(' - ')
+        [p.name, p.phone ? `${t('phoneShort')}: ${p.phone}` : '', p.address ? `(${p.address})` : ''].filter(Boolean).join(' - ')
       );
       const sheet = document.getElementById('order-print-sheet');
 
@@ -1917,7 +1941,7 @@ body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;col
 .px-1\.5{padding-left:6px;padding-right:6px}.px-2{padding-left:8px;padding-right:8px}.px-2\.5{padding-left:10px;padding-right:10px}.px-3{padding-left:12px;padding-right:12px}
 .py-0\.5{padding-top:2px;padding-bottom:2px}.py-1{padding-top:4px;padding-bottom:4px}.py-1\.5{padding-top:6px;padding-bottom:6px}.py-2{padding-top:8px;padding-bottom:8px}
 .pt-0\.5{padding-top:2px}.pt-1\.5{padding-top:6px}.pt-2{padding-top:8px}.pt-14{padding-top:56px}.pb-1{padding-bottom:4px}.pb-2\.5{padding-bottom:10px}
-.mb-0\.5{margin-bottom:2px}.mb-1{margin-bottom:4px}.mb-1\.5{margin-bottom:6px}.mt-2{margin-top:8px}.mx-auto{margin-left:auto;margin-right:auto}
+.mb-0\.5{margin-bottom:2px}.mb-1{margin-bottom:4px}.mb-1\.5{margin-bottom:6px}.mt-2{margin-top:8px}.ml-1{margin-left:4px}.p-2\.5{padding:10px}.mx-auto{margin-left:auto;margin-right:auto}
 .w-full{width:100%}.w-14{width:56px}.h-14{height:56px}.w-20{width:80px}.max-w-\[190mm\]{max-width:190mm}
 .flex{display:flex}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-end{align-items:flex-end}.justify-between{justify-content:space-between}
 .shrink-0{flex-shrink:0}.inline-block{display:inline-block}.object-cover{object-fit:cover}
@@ -2573,8 +2597,9 @@ table{border-collapse:collapse}
 
     function openOrderTeamModal(o) {
       const team = getOrderTeam(o);
-      let draftPartners = [...team.partners];
+      let draftPartners = team.partners.map(p => ({ origName: p, name: p }));
       let draftWorkers = team.workers.map(w => ({
+        origName: w.name,
         name: w.name,
         mode: w.mode || (w.name === 'દિપક' ? 'lumpsum' : 'daily'),
         rate: w.name === 'સુરેશ' ? (Number(o.sureshRate) || Number(w.rate) || 350) : (Number(w.rate) || 0),
@@ -2589,7 +2614,7 @@ table{border-collapse:collapse}
 
         pList.innerHTML = draftPartners.map((p, idx) => `
           <div class="flex items-center gap-1.5">
-            <input data-edit-partner="${idx}" type="text" value="${escHtml(p)}" placeholder="${t('partnerNamePh')}" class="flex-1 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-medium" />
+            <input data-edit-partner="${idx}" type="text" value="${escHtml(p.name)}" placeholder="${t('partnerNamePh')}" class="flex-1 px-2.5 py-1.5 border border-slate-300 rounded-lg text-xs font-medium" />
             ${draftPartners.length > 1 ? `<button type="button" data-del-edit-partner="${idx}" class="px-2 py-1 text-rose-500 hover:bg-rose-50 rounded-lg text-xs font-bold">✕</button>` : ''}
           </div>
         `).join('');
@@ -2607,7 +2632,7 @@ table{border-collapse:collapse}
         `).join('');
 
         pList.querySelectorAll('[data-edit-partner]').forEach(inp => {
-          inp.addEventListener('input', () => { draftPartners[Number(inp.dataset.editPartner)] = inp.value; });
+          inp.addEventListener('input', () => { draftPartners[Number(inp.dataset.editPartner)].name = inp.value; });
         });
         pList.querySelectorAll('[data-del-edit-partner]').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -2662,7 +2687,34 @@ table{border-collapse:collapse}
             label: t('saveModalBtn'),
             className: 'px-4 py-2 text-sm font-semibold bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-xl',
             onClick: () => {
-              const cleanP = draftPartners.map(p => p.trim()).filter(Boolean);
+              const renameMap = {};
+              draftPartners.forEach(p => {
+                const nn = (p.name || '').trim();
+                if (p.origName && nn && p.origName !== nn) renameMap[p.origName] = nn;
+              });
+              draftWorkers.forEach(w => {
+                const nn = (w.name || '').trim();
+                if (w.origName && nn && w.origName !== nn) renameMap[w.origName] = nn;
+              });
+              Object.keys(renameMap).forEach(oldN => {
+                const newN = renameMap[oldN];
+                (o.upads || []).forEach(u => {
+                  const raw = getPersonUpadInputValue(u, oldN);
+                  if (raw !== '') {
+                    setPersonUpadInRow(u, newN, raw);
+                    setPersonUpadInRow(u, oldN, '');
+                  }
+                });
+                (o.expenses || []).forEach(e => {
+                  if ((e.who || '').trim() === oldN) e.who = newN;
+                });
+                if (o.extraByPerson && o.extraByPerson[oldN] !== undefined) {
+                  o.extraByPerson[newN] = o.extraByPerson[oldN];
+                  delete o.extraByPerson[oldN];
+                }
+              });
+
+              const cleanP = draftPartners.map(p => (p.name || '').trim()).filter(Boolean);
               if (cleanP.length === 0) { const cp = getContactProprietorNames(); cleanP.push(...(cp.length ? cp : ['Proprietor'])); }
               const cleanW = draftWorkers.map(w => ({
                 name: (w.name || '').trim(),
@@ -2687,11 +2739,11 @@ table{border-collapse:collapse}
 
       renderLists();
       document.getElementById('btn-add-edit-partner').addEventListener('click', () => {
-        draftPartners.push('');
+        draftPartners.push({ origName: '', name: '' });
         renderLists();
       });
       document.getElementById('btn-add-edit-worker').addEventListener('click', () => {
-        draftWorkers.push({ name: '', mode: 'daily', rate: 350, lumpsumFee: 0, att: [] });
+        draftWorkers.push({ origName: '', name: '', mode: 'daily', rate: 350, lumpsumFee: 0, att: [] });
         renderLists();
       });
     }
@@ -3380,25 +3432,30 @@ table{border-collapse:collapse}
         });
       });
 
-      // Add row buttons (keep amount and attendance fields blank by default)
+      // Add row buttons (sync existing inputs first, keep new amount/attendance blank)
       document.getElementById('btn-add-advance').addEventListener('click', () => {
+        syncAllOrderInputsFromDOM();
         o.advances.push({ date: todayDDMMYYYY(), amount: '' });
         saveOrders(); renderOrdersView();
       });
       document.getElementById('btn-add-labor').addEventListener('click', () => {
+        syncAllOrderInputsFromDOM();
         o.laborItems.push({ desc: '', amount: '' });
         saveOrders(); renderOrdersView();
       });
       document.getElementById('btn-add-upad').addEventListener('click', () => {
+        syncAllOrderInputsFromDOM();
         o.upads.push({ date: todayDDMMYYYY(), madhusinh: '', mahesh: '', suresh: '', byPerson: {} });
         saveOrders(); renderOrdersView();
       });
       document.getElementById('btn-add-expense').addEventListener('click', () => {
+        syncAllOrderInputsFromDOM();
         const { partners } = getOrderTeam(o);
         o.expenses.push({ who: partners[0] || '', amount: '', desc: '' });
         saveOrders(); renderOrdersView();
       });
       document.getElementById('btn-add-att').addEventListener('click', () => {
+        syncAllOrderInputsFromDOM();
         const { workers } = getOrderTeam(o);
         if (workers.length === 0) {
           showToast(t('addWorkerFirstToast'));
@@ -3811,8 +3868,8 @@ table{border-collapse:collapse}
         const val = (document.getElementById('input-google-client-id').value || '').trim();
         try { localStorage.setItem(GOOGLE_CLIENT_ID_KEY, val); } catch (e) {}
         updateDriveSyncUI();
-        if (val) showToast('Client ID સેવ થઈ ગયો! હવે Sign in with Google દબાવો.');
-        else showToast('Client ID દૂર કર્યો.');
+        if (val) showToast(t('clientIdSavedToast'));
+        else showToast(t('clientIdRemovedToast'));
       });
       document.getElementById('btn-drive-sync-now').addEventListener('click', () => syncToGoogleDrive(true));
       document.getElementById('btn-drive-restore').addEventListener('click', restoreFromGoogleDrive);
@@ -3897,21 +3954,6 @@ table{border-collapse:collapse}
         e.target.value = '';
       });
 
-      const UNDO_RESET_KEY = 'karigar_hisab_undo_reset_v1';
-      function updateUndoResetButton() {
-        const undoBtn = document.getElementById('btn-undo-reset');
-        if (!undoBtn) return;
-        try {
-          const raw = localStorage.getItem(UNDO_RESET_KEY);
-          const parsed = raw ? JSON.parse(raw) : null;
-          if (parsed && Array.isArray(parsed.orders) && parsed.orders.length > 0) {
-            undoBtn.textContent = `${t('undoResetBtn')} (${parsed.orders.length} ${t('orderWord')})`;
-            undoBtn.classList.remove('hidden');
-            return;
-          }
-        } catch (e) {}
-        undoBtn.classList.add('hidden');
-      }
       updateUndoResetButton();
 
       document.getElementById('btn-undo-reset').addEventListener('click', () => {
@@ -3925,17 +3967,17 @@ table{border-collapse:collapse}
             localStorage.removeItem(UNDO_RESET_KEY);
             updateUndoResetButton();
             switchTab('dashboard');
-            showToast('રિસેટ કરેલો ડેટા પાછો આવી ગયો! ✓');
+            showToast(t('undoRestoredToast'));
             return;
           }
         } catch (e) {}
-        showToast('પાછો લાવવા માટે કોઈ જૂનો ડેટા મળ્યો નથી.');
+        showToast(t('undoNotFoundToast'));
       });
 
       document.getElementById('btn-reset-data').addEventListener('click', () => {
         openModal({
           title: t('resetTitle'),
-          bodyHtml: `<p>${t('resetConfirm')}</p><p class="text-xs text-slate-600 mt-2">નોંધ: તમારો જૂનો ડેટા Undo માટે લોકલ મેમરીમાં અને Google Drive બેકઅપમાં સુરક્ષિત રહેશે.</p>`,
+          bodyHtml: `<p>${t('resetConfirm')}</p><p class="text-xs text-slate-600 mt-2">${t('resetSafeNote')}</p>`,
           actions: [
             { label: t('cancelBtn'), className: 'px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 rounded-xl', onClick: closeModal },
             {
@@ -3953,7 +3995,7 @@ table{border-collapse:collapse}
                 updateUndoResetButton();
                 closeModal();
                 switchTab('dashboard');
-                showToast('બધા ઓર્ડર ખાલી કર્યા (Drive બેકઅપ સુરક્ષિત છે). Undo થી પાછા લાવી શકાય છે.');
+                showToast(t('resetDoneWithUndoToast'));
               }
             }
           ]
